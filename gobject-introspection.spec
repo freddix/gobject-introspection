@@ -1,18 +1,18 @@
 Summary:	GObject introspection library
 Name:		gobject-introspection
-Version:	1.32.1
-Release:	3
+Version:	1.34.0
+Release:	2
 License:	LGPL v2+ (giscanner) and GPL v2+ (tools)
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.32/%{name}-%{version}.tar.xz
-# Source0-md5:	7bbdb696c37bb98aef5af02c4b8975e3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.34/%{name}-%{version}.tar.xz
+# Source0-md5:	0902ae3b31871ea00167720e06acaa40
 Patch0:		%{name}-libtool.patch
 URL:		http://live.gnome.org/GObjectIntrospection
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	cairo-gobject-devel
-BuildRequires:	glib-gio-devel
+BuildRequires:	glib-gio-devel >= 1:2.34.0
 BuildRequires:	libffi-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -70,8 +70,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gobject-introspection/giscanner/*.{la,py}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post	-p /usr/sbin/ldconfig
+%postun	-p /usr/sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
