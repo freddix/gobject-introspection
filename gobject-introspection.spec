@@ -1,18 +1,18 @@
 Summary:	GObject introspection library
 Name:		gobject-introspection
-Version:	1.34.2
+Version:	1.36.0
 Release:	1
 License:	LGPL v2+ (giscanner) and GPL v2+ (tools)
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.34/%{name}-%{version}.tar.xz
-# Source0-md5:	9dc9822eb2912e9b73e51ae67fe86145
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.36/%{name}-%{version}.tar.xz
+# Source0-md5:	747523a60d02effe39417e2157b3a1c4
 Patch0:		%{name}-libtool.patch
 URL:		http://live.gnome.org/GObjectIntrospection
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	cairo-gobject-devel
-BuildRequires:	glib-gio-devel >= 1:2.34.0
+BuildRequires:	glib-gio-devel >= 1:2.36.0
 BuildRequires:	libffi-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -55,7 +55,6 @@ GI API documentation.
 %configure \
 	--disable-silent-rules	\
 	--disable-static	\
-	--disable-tests		\
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -88,6 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gobject-introspection-1.0
 %dir %{_libdir}/gobject-introspection
 %dir %{_libdir}/gobject-introspection/giscanner
+%dir %{_libdir}/gobject-introspection/giscanner/doctemplates
 
 %attr(755,root,root) %{_bindir}/g-ir-annotation-tool
 %attr(755,root,root) %{_bindir}/g-ir-compiler
@@ -104,15 +104,21 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/introspection.m4
 %{_pkgconfigdir}/*.pc
 
-%{_libdir}/gobject-introspection/giscanner/*.py[co]
-%{_libdir}/gobject-introspection/giscanner/*.tmpl
 %attr(755,root,root) %{_libdir}/gobject-introspection/giscanner/*.so
+%{_libdir}/gobject-introspection/giscanner/*.py[co]
+
+%{_libdir}/gobject-introspection/giscanner/doctemplates/C
+%{_libdir}/gobject-introspection/giscanner/doctemplates/Gjs
+%{_libdir}/gobject-introspection/giscanner/doctemplates/Python
+%{_libdir}/gobject-introspection/giscanner/doctemplates/*.tmpl
 
 %{_mandir}/man1/g-ir-compiler.1*
 %{_mandir}/man1/g-ir-generate.1*
 %{_mandir}/man1/g-ir-scanner.1*
 
+%if 0
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gi
+%endif
 
