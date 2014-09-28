@@ -1,18 +1,18 @@
 Summary:	GObject introspection library
 Name:		gobject-introspection
-Version:	1.40.0
-Release:	2
+Version:	1.42.0
+Release:	1
 License:	LGPL v2+ (giscanner) and GPL v2+ (tools)
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.40/%{name}-%{version}.tar.xz
-# Source0-md5:	bbb103b5d88dbf2a257b7a26ae9bc666
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gobject-introspection/1.42/%{name}-%{version}.tar.xz
+# Source0-md5:	4fa52f6b67367d9c1b99b98683ced202
 Patch0:		%{name}-libtool.patch
 URL:		http://live.gnome.org/GObjectIntrospection
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	cairo-gobject-devel
-BuildRequires:	glib-gio-devel >= 1:2.40.0
+BuildRequires:	glib-gio-devel >= 1:2.42.0
 BuildRequires:	libffi-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
